@@ -1,0 +1,67 @@
+tag 30300-2-Release
+5693b349bf35ee600a25f89a4f7c5de27808fccc
+LaoTseu <eric.beaudoin@gmail.com>
+2010-05-03 23:33:56 +0000
+
+'Tagging as 30300-2-Release'
+
+
+--------------------
+
+LaoTseu:
+	- - New zhCN and zhTW phrases from Mars1491 (generated from http://www.wowace.com/addons/all-played-laotseu/localization/) - New koKR phrases from chkid (generated from http://www.wowace.com/addons/all-played-laotseu/localization/) - Obviously, I can't validate anything is those except basic LUA compiler check. If anything is wrong with the translations, please let me know.
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@210 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - New version of the frFR notes in the TOC file
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@209 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Adding the koKR notes for the TOC file. I hope this works.
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@208 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Translation clean-up - Added new translated phrases for frFR (thanks Beltza) - Added new translated phrases for koKR (thanks next96 and chkid) - Exported the koKR, zhCN and zhTW translations with escaped non-ASCII characters to prevent me from screwing-up files with my lack of Unicode support (someone will have to tell me if it works properly) - Put some debugging code in place to trace some CPU usage (not active)
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@207 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Correct a typo in the OptionalDeps
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@205 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Make L private to prevent AllPlayed from polluting (and being polluted) by other addons. That was a very dum mistake of my part.
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@204 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Make sure AllPlayed works properly if there is no SaveVariabled table define yet (first time load) - Fix 9 - 30300-2-beta-3 does not work the first time
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@202 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Fix 8 - Error when trying to change option to not show gold
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@200 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Ticket 7 - AllPlayed-30300-2-beta-1.zip is missing AceGUI-3.0 lib
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@198 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Clean-up .pkgmeta and the SVN Externals
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@196 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - All the remaining usage of Ace2 removed
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@195 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Replace AceLocale-2.2 with AceLocal-3.0
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@194 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Profile management
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@193 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- IMPORTANT: Save your \WTF\Account\<account name>\SavedVariables\AllPlayed.lua before using this alpha - Now using AceDB-3.0 instead of AceDB-2.0 - Will convert data from 2.0 to 3.0 but not the profile. Time to look at the new config dialog. - Profile management is still to come
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@192 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Use AceConfig-3.0 to get AllPlayed configuration into the Blizzard interface - Support for the profile is still to come - No longer using Dewdrop
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@191 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - More Dewdrop-less menu work
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@190 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Preliminary work on menu without Dewdrop
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@189 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Some work to minimize the memory garbage caused by using table during tooltip updates
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@188 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+chkid:
+	- - update koKR (Regenerated)
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@187 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+LaoTseu:
+	- - Fix for ticket 4 and 5. The path for LibDBIcon in .pkgmeta was wrong.
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@186 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Implemented Set Scale for the tooltip. Not quite working yet.
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@185 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Code and lib cleanup - Re-implemented Opacity setting
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@184 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Make sure that LibDBIcon is in the package - Small change to the default settings
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@183 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - All this will certainly be worth a version bump
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@182 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - No tablet and no FuBar
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@181 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - The tooltip now updates - Added LibDBIcon (getting ready to also ditch FubarPlugin)
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@180 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
+	- - Begin of replacement of Tablet by LibQTip (very alpha)
+	git-svn-id: svn://svn.wowace.com/wow/all-played-laotseu/mainline/trunk@179 0c53f26f-d59f-4dd4-8d37-a1ff69c72365
