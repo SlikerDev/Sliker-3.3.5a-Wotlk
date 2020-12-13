@@ -1,4 +1,0 @@
-## Interface: 30300
-## Title: Sunwell Raid Browser UI
-## Vesion: 1
-SunwellRB.lua

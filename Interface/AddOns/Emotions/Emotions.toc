@@ -1,0 +1,20 @@
+## Interface: 30100
+## Title: Emotions 0.2a
+## Notes: Responds to Emotes
+## Author: Áine|Herja @ Teldrassil-EU
+## Version: 0.2a
+## OptionalDeps: Ace3
+## SavedVariables: EmotionsDB
+## X-Category: Player Enhancements
+## Dependencies:
+
+embeds.xml
+
+Emotions.xml
+Constants.lua
+Locale-enUS.lua
+Locale-deDE.lua
+Emotes-deDE.lua
+Emotes-enUS.lua
+Core.lua
+options.xml

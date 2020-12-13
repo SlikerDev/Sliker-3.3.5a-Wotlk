@@ -1,0 +1,348 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Frame name="Emotions_General" hidden="false">
+		<!--<Scripts>
+			<OnLoad>
+				OnLoad(self);
+        	</OnLoad>
+		</Scripts>
+		--><Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" text="L_ADDONNAME"
+					inherits="GameFontNormalLarge" justifyH="LEFT" justifyV="TOP">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="16" y="-16" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="activeCheck"
+				inherits="InterfaceOptionsBaseCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTitle"
+						relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="-2" y="-10" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="$parentText" text="L_ACTIVE"
+							inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="activeCheck"
+									relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="0" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</CheckButton>
+			<EditBox name="pause" autoFocus="false" inherits="InputBoxTemplate" numeric="true">
+				<Size>
+					<AbsDimension x="20" y="16" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="activeCheck"
+						relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="8" y="-10" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<FontString inherits="ChatFontNormal"/>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="$parentText" text="L_PAUSE" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="pause" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="8" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</EditBox>
+			<Button name="saveSettings" inherits="UIPanelButtonTemplate"
+				text="L_SAVE">
+				<Size>
+					<AbsDimension x="70" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="pause" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="-5" y="-20" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						Emotions:SaveSettings();
+          </OnClick>
+				</Scripts>
+			</Button><!--
+			<Scripts>
+				<OnLoad>
+					self.name = L_ADDONNAME;
+					OnLoad(self);
+      			</OnLoad>
+			</Scripts>
+		--></Frames>
+	</Frame>
+	
+	
+	<Frame name="Emotions_EmotePanel" hidden="false">
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="PanelTitle" text="L_EMOTEHEADER"
+					inherits="GameFontNormalLarge" justifyH="LEFT" justifyV="TOP">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="16" y="-16" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="emoteList" inherits="UIDropDownMenuTemplate">
+                <Size>
+                    <AbsDimension x="48" y="24"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="PanelTitle" relativePoint="BOTTOMLEFT">
+                        <Offset><AbsDimension x="-2" y="-10"/></Offset>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+					<OnLoad>
+                        UIDropDownMenu_Initialize(this, emoteList_OnLoad);
+					</OnLoad>               
+	               	<OnClick>
+	                	emoteList_OnClick();
+	                </OnClick>
+				</Scripts>
+			</Button>
+			<EditBox name="trigger" autoFocus="false" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="150" y="16" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="emoteList" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="8" y="-30" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<FontString inherits="ChatFontNormal"/>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="triggerText" text="L_TRIGGER" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" relativeTo="trigger" relativePoint="TOPLEFT">
+									<Offset>
+										<AbsDimension x="0" y="7" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</EditBox>
+			<EditBox name="delay" autoFocus="false" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="20" y="16" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="trigger" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="8" y="-15" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<FontString inherits="ChatFontNormal"/>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="triggerText" text="L_DELAY" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="delay" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="0" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</EditBox>
+			<CheckButton name="onlyYouCheck" inherits="InterfaceOptionsBaseCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="delay" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="-8" y="-10" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="onlyYouCheckText" text="L_ONLYYOU" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="onlyYouCheck" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="0" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</CheckButton>
+			<CheckButton name="onTargetCheck" inherits="InterfaceOptionsBaseCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="onlyYouCheck" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-8" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="onTargetCheckText" text="L_ONTARGET" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="onTargetCheck" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="0" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</CheckButton>
+			<CheckButton name="builtInCheck" inherits="InterfaceOptionsBaseCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="onTargetCheck" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-8" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="builtInCheckText" text="L_BUILTIN" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="builtInCheck" relativePoint="RIGHT">
+									<Offset>
+										<AbsDimension x="0" y="0" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</CheckButton>
+			<EditBox name="reaction" autoFocus="false" inherits="InputBoxTemplate">
+				<Size>
+					<AbsDimension x="300" y="16" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="builtInCheck" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="8" y="-30" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<FontString inherits="ChatFontNormal"/>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString name="reactionText" text="L_REACTION" inherits="GameFontHighlight">
+							<Anchors>
+								<Anchor point="BOTTOMLEFT" relativeTo="reaction" relativePoint="TOPLEFT">
+									<Offset>
+										<AbsDimension x="0" y="7" />
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</EditBox>
+			<Button name="newEmote" inherits="UIPanelButtonTemplate" text="L_NEWEMOTE">
+				<Size>
+					<AbsDimension x="100" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="reaction" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="-5" y="-25" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						Emotions:NewEmote();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="saveEmote" inherits="UIPanelButtonTemplate" text="L_SAVEEMOTE">
+				<Size>
+					<AbsDimension x="100" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="newEmote" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="10" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						Emotions:SaveEmote();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="deleteEmote" inherits="UIPanelButtonTemplate" text="L_DELETEEMOTE">
+				<Size>
+					<AbsDimension x="100" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="saveEmote" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="10" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						Emotions:DeleteEmote();
+					</OnClick>
+				</Scripts>
+			</Button>			
+			<!--<Scripts>
+				<OnLoad>
+					self.name = L_EMOTEHEADER;
+					self.parent = L_ADDONNAME;
+					OnLoad(self);
+				</OnLoad>
+			</Scripts>
+		--></Frames>
+		<Scripts>
+			<OnLoad>
+				OnLoad();
+        	</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>
